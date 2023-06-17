@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   ];
 
   @override
-  void initstate() {
+  void initState() {
     super.initState();
     _getData();
   }
