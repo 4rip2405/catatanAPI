@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mysql/Home.dart';
 
-import 'Home.dart';
 
 void main() {
   runApp(const MyApp());

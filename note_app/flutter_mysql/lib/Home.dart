@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter_mysql/add.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +23,7 @@ class _HomeState extends State<Home> {
   ];
 
   @override
-  void initstate() {
+  void initState() {
     super.initState();
     _getData();
   }
@@ -90,5 +93,24 @@ class _HomeState extends State<Home> {
                   ), 
                 ); 
               })
+              : const Center(
+              child: Text(
+                "No Data Available",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Add()));
+        },
+      ),
+    );
 }
 }
