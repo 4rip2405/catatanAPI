@@ -15,14 +15,14 @@ class Add extends StatefulWidget {
 class _AddState extends State<Add> { 
   final _formKey = GlobalKey<FormState>(); 
  
-  // Inisialisasi controller 
+
   final TextEditingController _titleController = TextEditingController(); 
   final TextEditingController _contentController = TextEditingController(); 
  
   Future<void> _onSubmit() async { 
     if (_formKey.currentState!.validate()) { 
       try { 
-        final noteProvider = Provider.of<NoteProvider>(context, listen: false); 
+        final noteProvider = Provider.of<noteprovider>(context, listen: false); 
  
         final newNote = Note( 
           id: '', 
@@ -30,8 +30,7 @@ class _AddState extends State<Add> {
           content: _contentController.text, 
           date: '', 
         ); 
- 
-        // Mengirim permintaan POST ke server 
+
         final response = await http.post( 
           Uri.parse("http://192.168.1.17/note_app/create.php"), 
           body: { 
